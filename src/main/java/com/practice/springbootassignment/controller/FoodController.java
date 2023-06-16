@@ -1,5 +1,6 @@
 package com.practice.springbootassignment.controller;
 
+import com.practice.springbootassignment.exception.FoodNotFoundException;
 import com.practice.springbootassignment.modal.Food;
 import com.practice.springbootassignment.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class FoodController {
     public Food getFood(@PathVariable int id) {
         Food food = foodService.findById(id);
         if (food == null) {
-            throw new RuntimeException("Food ID not found - " + id);
+            throw new FoodNotFoundException("Food ID not found - " + id);
         }
         return food;
     }
@@ -45,7 +46,7 @@ public class FoodController {
     public String deleteFood(@PathVariable int id) {
         Food food = foodService.findById(id);
         if (food == null) {
-            throw new RuntimeException("Food ID not found - " + id);
+            throw new FoodNotFoundException("Food ID not found - " + id);
         }
         foodService.deleteById(id);
         return "Deleted Food ID - " + id;

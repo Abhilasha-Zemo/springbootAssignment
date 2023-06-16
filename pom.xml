@@ -17,6 +17,10 @@
         <java.version>17</java.version>
         <sonar.organization>Abhilasha-Zemo</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <sonar.projectKey>Abhilasha-Zemo_springbootAssignment</sonar.projectKey>
     </properties>
     <dependencies>
         <dependency>
@@ -67,6 +71,25 @@
                         </exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>

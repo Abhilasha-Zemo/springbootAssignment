@@ -1,6 +1,7 @@
 package com.practice.springbootassignment.service;
 
 import com.practice.springbootassignment.dao.FoodRepository;
+import com.practice.springbootassignment.exception.FoodNotFoundException;
 import com.practice.springbootassignment.modal.Food;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class FoodServiceImpl implements FoodService {
         if (res.isPresent()) {
             food = res.get();
         } else {
-            throw new RuntimeException("Food ID Not Found - " + id);
+            throw new FoodNotFoundException("Food ID Not Found - " + id);
         }
         return food;
     }

@@ -26,7 +26,7 @@ class FoodServiceTest {
     private FoodService foodService = new FoodServiceImpl();
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         MockitoAnnotations.openMocks(this);
     }
 
